@@ -1,0 +1,6 @@
+[submodule "sources/poky"]
+	path = sources/poky
+	url = https://git.yoctoproject.org/git/poky.git
+[submodule "sources/meta-gdc"]
+	path = sources/meta-gdc
+	url = https://github.com/isrvoid/meta-gdc.git
