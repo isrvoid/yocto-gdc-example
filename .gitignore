@@ -2,3 +2,6 @@
 # files and directories
 build/*
 !build/conf
+build/conf/*
+!build/conf/bblayers.conf
+!build/conf/local.conf
