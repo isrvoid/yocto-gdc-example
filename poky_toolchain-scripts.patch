@@ -1,0 +1,20 @@
+diff --git a/meta/classes/toolchain-scripts.bbclass b/meta/classes/toolchain-scripts.bbclass
+index 260ece9676..ab6784db63 100644
+--- a/meta/classes/toolchain-scripts.bbclass
++++ b/meta/classes/toolchain-scripts.bbclass
+@@ -63,6 +63,7 @@ toolchain_create_tree_env_script () {
+ toolchain_shared_env_script () {
+ 	echo 'export CC="${TARGET_PREFIX}gcc ${TARGET_CC_ARCH} --sysroot=$SDKTARGETSYSROOT"' >> $script
+ 	echo 'export CXX="${TARGET_PREFIX}g++ ${TARGET_CC_ARCH} --sysroot=$SDKTARGETSYSROOT"' >> $script
++	echo 'export GDC="${TARGET_PREFIX}gdc ${TARGET_CC_ARCH} -shared-libphobos -I$SDKTARGETSYSROOT/usr/lib/gcc/${TARGET_SYS}/6.3.0/include/d --sysroot=$SDKTARGETSYSROOT"' >> $script
+ 	echo 'export CPP="${TARGET_PREFIX}gcc -E ${TARGET_CC_ARCH} --sysroot=$SDKTARGETSYSROOT"' >> $script
+ 	echo 'export AS="${TARGET_PREFIX}as ${TARGET_AS_ARCH}"' >> $script
+ 	echo 'export LD="${TARGET_PREFIX}ld ${TARGET_LD_ARCH} --sysroot=$SDKTARGETSYSROOT"' >> $script
+@@ -78,6 +79,7 @@ toolchain_shared_env_script () {
+ 	echo 'export CONFIGURE_FLAGS="--target=${TARGET_SYS} --host=${TARGET_SYS} --build=${SDK_ARCH}-linux --with-libtool-sysroot=$SDKTARGETSYSROOT"' >> $script
+ 	echo 'export CFLAGS="${TARGET_CFLAGS}"' >> $script
+ 	echo 'export CXXFLAGS="${TARGET_CXXFLAGS}"' >> $script
++	echo 'export GDCFLAGS="${TARGET_GDCFLAGS}"' >> $script
+ 	echo 'export LDFLAGS="${TARGET_LDFLAGS}"' >> $script
+ 	echo 'export CPPFLAGS="${TARGET_CPPFLAGS}"' >> $script
+ 	echo 'export KCFLAGS="--sysroot=$SDKTARGETSYSROOT"' >> $script
